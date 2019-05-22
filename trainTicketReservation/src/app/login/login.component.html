@@ -1,5 +1,5 @@
 <label>Login</label>
-<form>
+<form #loginForm>
   <div class="form-group row">
     <label class="col-sm-4 col-form-label" style="text-align: left">User ID</label>
     <div class="col-sm-8">
@@ -14,7 +14,7 @@
   </div>
   <div class="form-group row">
     <div class="col-sm-10">
-      <button type="button" class="btn btn-primary" (click)="validation(user.value,psd.value)">Login</button>
+      <button type="button" id="loginBut" class="btn btn-primary" (click)="validation(user.value,psd.value);loginForm.reset()">Login</button>
     </div>
   </div>
 </form>

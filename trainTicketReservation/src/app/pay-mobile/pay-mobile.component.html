@@ -1,3 +1,33 @@
-<p>
-  pay-mobile works!
-</p>
+<label>Make Your Payment Via Mobile</label>
+<form #mForm>
+  <div class="form-group row">
+    <label class="col-sm-4 col-form-label" style="text-align: left">Reserve ID</label>
+    <div class="col-sm-8">
+      <input class="form-control" #reserve1 id="reserve" type="text" [value]="id" readonly>
+    </div>
+  </div>
+  <div class="form-group row">
+    <label class="col-sm-4 col-form-label" style="text-align: left">Mobile Number</label>
+    <div class="col-sm-8">
+      <input class="form-control" #mobile1 id="mobile" type="text" placeholder="xxxxxxxxxx">
+    </div>
+  </div>
+  <div class="form-group row">
+    <label class="col-sm-4 col-form-label" style="text-align: left">4 Digit Number</label>
+    <div class="col-sm-8">
+      <input class="form-control" #digit1 id="digit" type="text" readonly placeholder="xxxx" [value]="digt">
+    </div>
+  </div>
+  <div class="form-group row">
+    <label class="col-sm-4 col-form-label" style="text-align: left">Amount</label>
+    <div class="col-sm-8">
+      <input class="form-control" #amount1 id="amount" type="text" [value]="tot" readonly>
+    </div>
+  </div>
+  <div class="form-group row">
+    <div class="col-sm-10">
+      <button type="button" id="saveReserve" class="btn btn-primary" (click)="validationAndSave(reserve1.value,mobile1.value,digit1.value);mForm.reset()">Confirm your Payment</button>
+    </div>
+  </div>
+</form>
+

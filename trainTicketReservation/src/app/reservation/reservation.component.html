@@ -1,26 +1,59 @@
 <label>Reserve Your Train Tickets</label>
-<form>
+<form #rForm>
   <div class="form-group row">
     <label class="col-sm-4 col-form-label" style="text-align: left">User ID</label>
     <div class="col-sm-8">
-      <input class="form-control" id="id" type="text" readonly>
+      <input class="form-control" #user1 id="user" type="text" [value]="id" readonly>
+    </div>
+  </div>
+  <div class="input-group mb-3">
+    <div class="input-group-prepend">
+      <label class="input-group-text" for="inputGroupSelect01">Train</label>
+    </div>
+    <select class="custom-select" id="inputGroupSelect01" #tname>
+      <option selected>Select the Train</option>
+      <option value="1">Yaal Devi</option>
+      <option value="2">Udarata Manike</option>
+      <option value="3">Badulu Kumari</option>
+    </select>
+  </div>
+  <div class="form-group row">
+    <label class="col-sm-4 col-form-label" style="text-align: left">Date</label>
+    <div class="col-sm-8">
+      <input type="date" #d class="form-control" id="date1">
     </div>
   </div>
   <div class="form-group row">
-    <label class="col-sm-4 col-form-label" style="text-align: left">Name</label>
+    <label class="col-sm-4 col-form-label" style="text-align: left">Time</label>
     <div class="col-sm-8">
-      <input type="text" class="form-control" #name1 id="name" placeholder="Enter your Name">
+      <input type="time" #t class="form-control" id="time1">
     </div>
   </div>
   <div class="form-group row">
-    <label class="col-sm-4 col-form-label" style="text-align: left">Email</label>
+    <label class="col-sm-4 col-form-label" style="text-align: left">No Of Tickets</label>
+      <div class="col-sm-8">
+        <input type="number" #nOT class="form-control" value="1" min="0" max="30" step="1">
+      </div>
+  </div>
+  <div class="form-group row">
+    <label class="col-sm-4 col-form-label" style="text-align: left">Amount(click the field to see the amount)</label>
     <div class="col-sm-8">
-      <input type="email" class="form-control" #email1 id="email" placeholder="Email">
+      <input class="form-control" #amount1 id="amount" type="text" readonly placeholder="click here to see the amount" (click)="calculateAmount(tname.value,nOT.value,user1.value)" [value]="amount">
     </div>
+  </div>
+  <div class="input-group mb-3">
+    <div class="input-group-prepend">
+      <label class="input-group-text" for="inputGroupSelect02">Payment Methods</label>
+    </div>
+    <select class="custom-select" id="inputGroupSelect02" #pm>
+      <option selected>Select the method</option>
+      <option value="Mobile">Mobile</option>
+      <option value="CreditCard">Credit Card</option>
+    </select>
   </div>
   <div class="form-group row">
     <div class="col-sm-10">
-      <button type="button" class="btn btn-primary">Confirm your reservation</button>
+      <button type="button" id="saveReserve" class="btn btn-primary" (click)="saveReservation(user1.value,d.value,t.value,nOT.value,amount1.value,pm.value);rForm.reset()">Confirm your reservation</button>
     </div>
   </div>
 </form>
