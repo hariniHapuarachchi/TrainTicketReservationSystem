@@ -6,17 +6,17 @@ import javax.persistence.Id;
 @Entity
 public class Login extends SuperEntity{
 
-    private int id;
     @Id
     private String loginTime;
+    private int id;
     private String logoutTime;
 
     public Login() {
     }
 
-    public Login(int id, String loginTime, String logoutTime) {
-        this.id = id;
+    public Login(String loginTime,int id,  String logoutTime) {
         this.loginTime = loginTime;
+        this.id = id;
         this.logoutTime = logoutTime;
     }
     public Login(String loginTime) {
@@ -55,8 +55,8 @@ public class Login extends SuperEntity{
     @Override
     public String toString() {
         return "Login{" +
-                "id=" + id +
-                ", loginTime='" + loginTime + '\'' +
+                "loginTime='" + loginTime + '\'' +
+                ", id=" + id +
                 ", logoutTime='" + logoutTime + '\'' +
                 '}';
     }

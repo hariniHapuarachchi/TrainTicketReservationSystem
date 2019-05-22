@@ -8,5 +8,5 @@ import rest.repository.custom.LoginRepository;
 import rest.repository.custom.ReservationRepository;
 
 @Repository
-public class LoginRepositoryImpl extends CrudRepositoryImpl<Login, String> implements LoginRepository {
+public class LoginRepositoryImpl extends CrudRepositoryImpl<Login, String > implements LoginRepository {
 }

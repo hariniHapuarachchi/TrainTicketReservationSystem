@@ -36,8 +36,8 @@ public class ReservationController {
         return new ResponseEntity(HttpStatus.OK);
     }
 
-    @GetMapping("/{id:C\\d{3}}")
-    public ResponseEntity<ReservationDTO> findReservation(@PathVariable("id") String Id) {
+    @GetMapping("/{id}")
+    public ResponseEntity<ReservationDTO> findReservation(@PathVariable("id") int Id) {
         ReservationDTO reservationDTO = reservationService.findReservation(Id);
         HttpStatus status = (reservationDTO !=null)? HttpStatus.OK: HttpStatus.NOT_FOUND;
         return new ResponseEntity<ReservationDTO>(reservationDTO, status);

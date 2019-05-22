@@ -8,6 +8,8 @@ import rest.repository.custom.LoginRepository;
 import rest.service.Converter;
 import rest.service.custom.LoginService;
 
+import java.util.List;
+
 @Service
 @Transactional
 public class LoginServiceImpl implements LoginService {
@@ -27,5 +29,15 @@ public class LoginServiceImpl implements LoginService {
     @Override
     public void updateLoginDet(LoginDTO dto) {
         loginDAO.update(Converter.getEntity(dto));
+    }
+
+    @Transactional(readOnly = true)
+    public List<LoginDTO> getLogins() {
+        return loginDAO.findAll().map(Converter::<LoginDTO>getDTOList).get();
+    }
+
+    @Override
+    public LoginDTO findLoginDet(String id) {
+        return loginDAO.find(id).map(Converter::<LoginDTO>getDTO).orElse(null);
     }
 }

@@ -2,6 +2,7 @@ package rest.dto;
 
 public class ReservationDTO extends SuperDTO{
 
+    private int reserveId;
     private int id;
     private String date;
     private String time;
@@ -13,7 +14,8 @@ public class ReservationDTO extends SuperDTO{
 
     }
 
-    public ReservationDTO(int id, String date, String time, int ticket, double amount, String payMethod) {
+    public ReservationDTO(int reserveId,int id, String date, String time, int ticket, double amount, String payMethod) {
+        this.reserveId = reserveId;
         this.id = id;
         this.date = date;
         this.time = time;
@@ -22,6 +24,13 @@ public class ReservationDTO extends SuperDTO{
         this.payMethod = payMethod;
     }
 
+    public int getReserveId() {
+        return reserveId;
+    }
+
+    public void setReserveId(int reserveId) {
+        this.reserveId = reserveId;
+    }
     public int getId() {
         return id;
     }
@@ -73,7 +82,8 @@ public class ReservationDTO extends SuperDTO{
     @Override
     public String toString() {
         return "ReservationDTO{" +
-                "id='" + id + '\'' +
+                "reserveId=" + reserveId +
+                ", id=" + id +
                 ", date='" + date + '\'' +
                 ", time='" + time + '\'' +
                 ", ticket=" + ticket +

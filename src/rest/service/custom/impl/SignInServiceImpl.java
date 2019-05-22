@@ -30,4 +30,10 @@ public class SignInServiceImpl implements SignInService {
     public List<SignInDTO> getCustomers(){
         return signInDAO.findAll().map(Converter::<SignInDTO>getDTOList).get();
     }
+
+    @Override
+    public SignInDTO findUser(int id) {
+        return signInDAO.find(id).map(Converter::<SignInDTO>getDTO).orElse(null);
+    }
+
 }

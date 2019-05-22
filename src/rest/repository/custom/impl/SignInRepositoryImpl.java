@@ -9,6 +9,6 @@ import java.util.List;
 import java.util.Optional;
 
 @Repository
-public class SignInRepositoryImpl extends CrudRepositoryImpl<SignIn, String> implements SignInRepository {
+public class SignInRepositoryImpl extends CrudRepositoryImpl<SignIn, Integer> implements SignInRepository {
 
 }

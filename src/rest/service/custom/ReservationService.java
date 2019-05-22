@@ -11,5 +11,5 @@ public interface ReservationService extends SuperService {
 
     List<ReservationDTO> getReservations();
 
-    ReservationDTO findReservation(String id);
+    ReservationDTO findReservation(int id);
 }

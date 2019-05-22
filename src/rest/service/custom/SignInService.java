@@ -12,4 +12,6 @@ public interface SignInService extends SuperService {
 
     List<SignInDTO> getCustomers();
 
+    SignInDTO findUser(int id);
+
 }

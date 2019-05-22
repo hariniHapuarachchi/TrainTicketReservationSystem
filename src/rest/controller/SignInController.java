@@ -34,4 +34,11 @@ public class SignInController {
         return new ResponseEntity(HttpStatus.OK);
     }
 
+    @GetMapping("/{id}")
+    public ResponseEntity<SignInDTO> findUser(@PathVariable("id") int uId) {
+        SignInDTO user = signInService.findUser(uId);
+        HttpStatus status = (user !=null)? HttpStatus.OK: HttpStatus.NOT_FOUND;
+        return new ResponseEntity<SignInDTO>(user, status);
+    }
+
 }

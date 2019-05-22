@@ -7,5 +7,5 @@ import rest.repository.CrudRepositoryImpl;
 import rest.repository.custom.ReservationRepository;
 
 @Repository
-public class ReservationRepositoryImpl extends CrudRepositoryImpl<Reservation, String> implements ReservationRepository {
+public class ReservationRepositoryImpl extends CrudRepositoryImpl<Reservation, Integer> implements ReservationRepository {
 }

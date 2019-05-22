@@ -34,7 +34,7 @@ public class ReservationServiceImpl implements ReservationService {
     }
 
     @Override
-    public ReservationDTO findReservation(String id) {
+    public ReservationDTO findReservation(int id) {
         return reservationDAO.find(id).map(Converter::<ReservationDTO>getDTO).orElse(null);
     }
 }
